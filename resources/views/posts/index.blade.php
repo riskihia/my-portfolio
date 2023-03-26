@@ -11,7 +11,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>Blog Riski</h1>
+        <h1>Blog Riski
+            <a class="btn btn-success" href="{{ url('posts/create') }}">+ Buat Postingan</a>
+        </h1>
 
         @foreach($posts as $post)
             @php($post = explode(",",$post))
@@ -20,7 +22,7 @@
                     <h5 class="card-title">{{ $post[1] }}</h5>
                     <p class="card-text">{{$post[2]}}</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated {{ date('d M Y H:i', strtotime($post[3]))}}</small></p>
-                    <a href="#" class="btn btn-primary">Selengkapnya</a>
+                    <a href="{{ url("posts/$post[0]") }}" class="btn btn-primary">Selengkapnya</a>
                 </div>
             </div>
         @endforeach
